@@ -9,9 +9,12 @@ import elements.Camera;
 import primitives.*;
 /**
  * Testing Camera Class
- * @author miri-tami
+ * @author sarit carmen 315154294
+*@author yael vaknin 207476268
  *
  */
+
+
 public class CameraTests {
 
 	/**

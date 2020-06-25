@@ -3,8 +3,8 @@ import static java.lang.System.out;
 import static primitives.Util.*;
 
 /**
- *@author miri goldring 315121228 miri.100.g@gmail.com
- *@author tami spigelman 206833139 Tamispigelman@gmail.com
+ *@author sarit carmen 315154294
+ *@author yael vaknin 207476268
  * Test program for the 1st stage
  */
 public final class Main {

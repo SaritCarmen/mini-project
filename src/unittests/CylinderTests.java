@@ -14,8 +14,9 @@ import primitives.Point3D;
 import primitives.Ray;
 import primitives.Vector;
 
-
 /**
+*@author sarit carmen 315154294
+*@author yael vaknin 207476268
  * testing getNormal() of Cylinder
  */
 public class CylinderTests {

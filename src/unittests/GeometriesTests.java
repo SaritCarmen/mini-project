@@ -13,6 +13,11 @@ import geometries.Triangle;
 import primitives.Point3D;
 import primitives.Ray;
 
+/**
+*@author sarit carmen 315154294
+*@author yael vaknin 207476268
+*/
+
 public class GeometriesTests {
 
 

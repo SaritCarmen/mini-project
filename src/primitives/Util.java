@@ -1,7 +1,8 @@
 
 package primitives;
 /**
- * @author miri_tami
+ *@author sarit carmen 315154294
+ *@author yael vaknin 207476268
  *
  */
 public abstract class Util 

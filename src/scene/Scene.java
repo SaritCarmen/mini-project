@@ -1,6 +1,9 @@
 package scene;
 
-
+/**
+*@author sarit carmen 315154294
+*@author yael vaknin 207476268
+*/
 
 import elements.AmbientLight;
 import elements.Camera;

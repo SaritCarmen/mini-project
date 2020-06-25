@@ -8,6 +8,11 @@ public class Ray
 	 *  Defined by Vector and Point3D
 	 */
 	
+	/**
+	 * Delta size to move the rays head for shading rays, transparency and reflection
+	 */
+    private static final double DELTA = 0.1;
+	
 	private Point3D p;
 	private Vector dir;
 	/**
@@ -75,8 +80,20 @@ public class Ray
 	        return "point:"+p.toString()+"diraction vector:"+dir.toString();
 	}
 	
-	
-	
+	/**
+	 * Ray constructor that move the point by Delta
+	 * @param _p Pint3D p value
+	 * @param direction vector dir value before normalize
+	 * @param normal 
+	 */
+	public Ray(Point3D _p, Vector direction, Vector normal)
+	{
+		dir=new Vector(direction).normalized();	
+		double newVector = normal.dotProduct(direction);
+        Vector normalDelta = normal.scale((newVector > 0 ? DELTA : -DELTA));
+        p = _p.add(normalDelta);
 
+	}
+	
 
 }
