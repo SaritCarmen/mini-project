@@ -20,4 +20,10 @@ public interface LightSource {
 
 	public double getDistance(Point3D point) ;
 	
+	/**
+	 * calculate radius of the light source for soft shadow
+	 * @return radius of the light source 
+	 */
+	double getRadius();
+	
 }

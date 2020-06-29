@@ -20,7 +20,8 @@ public interface Intersectable
 	public static class GeoPoint {
 	    public Geometry geometry;
 	    public Point3D point;
-	     /**
+	   
+	    /**
 	      * ctr
 	      * @param g geometry value
 	      * @param p point value

@@ -40,5 +40,13 @@ public class DirectionalLight extends Light implements LightSource{
     public double getDistance(Point3D point) {
     	return Double.POSITIVE_INFINITY;
     }
+    
+    /**
+     * @return 0, direction light doesnt have radius
+     */
+  	@Override
+  	public double getRadius() {
+  		return 0;
+  	}
 }
 
