@@ -16,8 +16,9 @@ public abstract class RadialGeometry extends Geometry
 	 *ctr 
 	 * @param r _radius value
 	 */
-	public RadialGeometry (double r)
+	public RadialGeometry (double r,Box box)
 	{
+		super(box);
 		_radius=r;
 	}
 	/**
@@ -25,9 +26,9 @@ public abstract class RadialGeometry extends Geometry
 	 * @param emmission _emission value
 	 * @param r _radius value
 	 */
-	public RadialGeometry (Color emmission,double r)
+	public RadialGeometry (Color emmission,double r,Box box)
 	{
-		super(emmission);
+		super(emmission,box);
 		_radius=r;
 	}
 	/**
@@ -36,17 +37,18 @@ public abstract class RadialGeometry extends Geometry
 	 * @param material _material value
 	 * @param r _radius value
 	 */
-	public RadialGeometry (Color emmission,Material material,double r)
+	public RadialGeometry (Color emmission,Material material,double r,Box box)
 	{
-		super(emmission,material);
+		super(emmission,material,box);
 		_radius=r;
 	}
 	/**
-	 * coppy ctr
+	 * copy ctr
 	 * @param r _radius value
 	 */
 	public RadialGeometry (RadialGeometry  r)
 	{
+		super(r.get_box());
 		_radius=r.getR();
 	}
 

@@ -40,7 +40,8 @@ public class Render {
 	 * number of rays to the beam from point(soft shadow)
 	 */
 	private static final int NUM_OF_RAYES=80;
-
+	 private double _supersamplingDensity = 1;
+	 private double SOFT_SHADOW=1;
 	
 	/**
 	 * ctr
@@ -160,7 +161,17 @@ public class Render {
 	}
 	
 	
-
+	 private Color calcColor(List<Ray> inRay) {
+	        Color bkg = scene.getBackground();
+	        Color color = Color.BLACK;
+	        for (Ray ray : inRay) {
+	            GeoPoint gp = findClosestIntersection(ray);
+	            color = color.add(gp == null ? bkg : calcColor(gp, ray, MAX_CALC_COLOR_LEVEL, 1d));
+	        }
+	        color = color.add(scene.getAmbientLight().getIntesity());
+	        int size = inRay.size();
+	        return (size == 1) ? color : color.reduce(size);
+	    }
 	
 	
 	/**

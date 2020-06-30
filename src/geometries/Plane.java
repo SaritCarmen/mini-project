@@ -23,7 +23,8 @@ public class Plane extends Geometry
 	 */
 	public Plane(Point3D p1,Point3D p2, Point3D p3)
 	{
-		super();
+		super(new Box(Double.NEGATIVE_INFINITY,Double.POSITIVE_INFINITY,Double.NEGATIVE_INFINITY,
+				Double.POSITIVE_INFINITY,Double.NEGATIVE_INFINITY,Double.POSITIVE_INFINITY));
 		this.p1=p1;//relation point of the plane
 		Vector v1=p2.subtract(p1);
 		Vector v2=p3.subtract(p2);
@@ -38,7 +39,8 @@ public class Plane extends Geometry
 	 */	
 	public Plane(Point3D _p,Vector v)
 	{
-		super();
+		super(new Box(Double.NEGATIVE_INFINITY,Double.POSITIVE_INFINITY,Double.NEGATIVE_INFINITY,
+				Double.POSITIVE_INFINITY,Double.NEGATIVE_INFINITY,Double.POSITIVE_INFINITY));	
 		p1=new Point3D(_p);
 		normal=new Vector(v);
 	}
@@ -52,7 +54,8 @@ public class Plane extends Geometry
 	 */
 	public Plane(Color emmission, Material material,Point3D p1,Point3D p2, Point3D p3 )
 	{
-		super(emmission, material);
+		super(emmission, material,new Box(Double.NEGATIVE_INFINITY,Double.POSITIVE_INFINITY,Double.NEGATIVE_INFINITY,
+				Double.POSITIVE_INFINITY,Double.NEGATIVE_INFINITY,Double.POSITIVE_INFINITY));
 		this.p1=p1;//relation point of the plane
 		Vector v1=p2.subtract(p1);
 		Vector v2=p3.subtract(p2);
@@ -115,7 +118,17 @@ public class Plane extends Geometry
 
 	        return t <= 0 ? null : List.of(new GeoPoint(this,ray.getTargetPoint(t)));
 	 }
+	
+	@Override
+	public boolean IsIntersectionBox(Ray ray) {
 
+		return this._box.IntersectionBox(ray);
+	}
+	
+	@Override
+	public Point3D getPositionPoint() {
+		return this.p1;
+	}
 
 
 }

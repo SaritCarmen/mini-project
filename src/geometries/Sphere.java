@@ -40,8 +40,8 @@ public class Sphere extends RadialGeometry
 	 */
 	public Sphere(Color emmission, Material material,double r,Point3D _p)//ctr
 	{
-		super(emmission,material,r);
-		// TODO Auto-generated constructor stub
+		super(emmission,material,r,new Box(_p.get_x().get()-r,_p.get_x().get()+r,_p.get_y().get()-r,
+    			_p.get_y().get()+r,_p.get_z().get()-r,_p.get_z().get()+r));
 		_center=new Point3D(_p);
     }
 /**
@@ -68,8 +68,11 @@ public class Sphere extends RadialGeometry
       * @return list of Point3D that intersect the given ray with the sphere
 	  */
 		public List<GeoPoint> findIntersections (Ray ray) {
-			// TODO Auto-generated method stub
-			  Point3D p0 = ray.getP();
+		 if(!IsIntersectionBox(ray))
+	    	{
+	    		return null;
+	    	}			  		 
+		 		Point3D p0 = ray.getP();
 		        Vector v = ray.getV();
 		        Vector u;
 		        try {
@@ -95,7 +98,17 @@ public class Sphere extends RadialGeometry
 		        else
 		            return List.of(new GeoPoint(this, ray.getTargetPoint(t2)));
 		    }
+	 @Override
+		public boolean IsIntersectionBox(Ray ray) {
+			
+			return this._box.IntersectionBox(ray);
+		    
+	 }
+		@Override
+		public Point3D getPositionPoint() {
+			return this._center;
 		}
+	}
 	    
 
 	

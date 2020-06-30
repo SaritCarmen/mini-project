@@ -15,31 +15,35 @@ public abstract class Geometry implements Intersectable
    abstract	public Vector getNormal(Point3D p);
    protected Color _emmission;
    protected Material _material ;
+   protected Box _box;
+   abstract public Point3D getPositionPoint();
+   
+   
    /**
     * Geomtry ctr with default _material value
     * @param color _emmission value
     */
-   public Geometry(Color color)
+   public Geometry(Color color,Box box)
    {
-	   _material=new Material(0, 0, 0) ;
-	   _emmission=color;
+	   this (color,new Material(0, 0, 0) ,box);
+	   
    }
    /**
     * default ctr
     */
-   public Geometry() {
-	   _material=new Material(0, 0, 0) ;
-	   _emmission=Color.BLACK;
-   }
+   public Geometry(Box box) {
+	   this(Color.BLACK,new Material(0, 0, 0),box );
+	  }
    /**
     * ctr
     * @param color _emission value
     * @param material _material value
     */
-   public Geometry(Color color, Material material)
+   public Geometry(Color color, Material material,Box box)
    {
 	   _emmission=color;
 	   _material=material;
+	   _box =box;
    }
   /** 
    * emisiion getter
@@ -55,6 +59,24 @@ public abstract class Geometry implements Intersectable
     */
    public Material getMaterial() {
 	   return _material;
+   }
+   
+   /**
+    * getter
+    * @return _box
+    */
+   public Box get_box()
+   {
+	   return _box;
+   }
+
+/**
+ * setter
+ * @param box is _box
+ */
+   public void set_box(Box box)
+   {
+	   _box=box;
    }
    
 }

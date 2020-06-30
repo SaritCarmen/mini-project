@@ -39,7 +39,7 @@ public class Polygon extends Geometry {
      *                                  </ul>
      */ 
      public Polygon(Color emmission,Material material,Point3D... vertices) {
-    	super(emmission,material);
+    	super(emmission,material,null);
         if (vertices.length < 3)
             throw new IllegalArgumentException("A polygon can't have less than 3 vertices");
         _vertices = List.of(vertices);
@@ -161,5 +161,35 @@ public class Polygon extends Geometry {
         	
         }
         
+	}
+	
+	 private Box createBox() {
+	   	 
+	        double x1=Double.NEGATIVE_INFINITY;
+			double x0=Double.POSITIVE_INFINITY;
+			double y1=Double.NEGATIVE_INFINITY;
+			double y0=Double.POSITIVE_INFINITY;
+			double z1=Double.NEGATIVE_INFINITY;
+			double z0=Double.POSITIVE_INFINITY;
+			
+	        for(Point3D v: _vertices) {
+	        	if(v.get_x().get()<x0) x0=v.get_x().get();
+	        	if(v.get_x().get()>x1) x1=v.get_x().get();
+	        	if(v.get_y().get()<y0) y0=v.get_y().get();
+	        	if(v.get_y().get()>y1) y1=v.get_y().get();
+	        	if(v.get_z().get()<z0) z0=v.get_z().get();
+	        	if(v.get_z().get()>z1) z1=v.get_z().get();
+	        }
+	        return new Box(x0,x1,y0,y1,z0,z1);
+			
+	    }
+	
+	@Override
+	public boolean IsIntersectionBox(Ray ray) {
+		return this._box.IntersectionBox(ray);
+	}
+	@Override
+	public Point3D getPositionPoint() {
+		return _vertices.get(0);
 	}
 }

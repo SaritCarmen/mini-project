@@ -40,7 +40,7 @@ public class Tube extends RadialGeometry
 	 */
 	public Tube(Color emmission,Material material,double r,Ray ray) 
 	{
-		super(emmission,material,r);
+		super(emmission,material,r,null);
 		// TODO Auto-generated constructor stub
 		axisRay=new Ray(ray);
 	}
@@ -77,5 +77,14 @@ public class Tube extends RadialGeometry
 		 return "ray:"+axisRay;
 	} 
 	
-
+	@Override
+	public boolean IsIntersectionBox(Ray ray) {
+		
+		return true;
+	}
+	@Override
+	public Point3D getPositionPoint() {
+		return this.getRay().getP();
+	} 
+	
 }
