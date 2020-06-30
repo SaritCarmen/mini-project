@@ -59,9 +59,7 @@ public class Tube extends RadialGeometry
 	   {
 		   o=o.add(v.scale(t));
 	   }
-	   return _point.subtract(o).normalize();
-	   
-	   
+	   return _point.subtract(o).normalize();   
 	 
 	}
 	

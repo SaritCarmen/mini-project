@@ -4,8 +4,8 @@ package primitives;
  *
  */
 public class Material {
-	private double _kD;//distance factor
-	private double _kS;//distance factor
+	private double _kD;//difuse factor
+	private double _kS;//specular factor
 	private int _nShininess;//the rank  of the brightness of the material
 	private double _kT;//Promotes transparency
 	private double _kR;//Reflection coefficient.

@@ -110,7 +110,8 @@ public class Polygon extends Geometry {
 	public List<GeoPoint> findIntersections (Ray ray) {
 		// TODO Auto-generated method stub
 		List<GeoPoint> intersections = _plane.findIntersections(ray);
-        if (intersections == null) return null;
+        if (intersections == null) 
+        	return null;
 
         Point3D p0 = ray.getP();
         Vector v = ray.getV();
@@ -123,11 +124,13 @@ public class Polygon extends Geometry {
         for(int i=0;i<vi.length-1;i++)
         {
         	double s= v.dotProduct(vi[i].crossProduct(vi[i+1]));
-        	    if (isZero(s)) return null;
+        	    if (isZero(s)) 
+        	    	return null;
         	    si.add(s);
         }
         double s= v.dotProduct(vi[vi.length-1].crossProduct(vi[0]));
-	    if (isZero(s)) return null;
+	    if (isZero(s))
+	    	return null;
 	    si.add(s);
 	    
 	    List<GeoPoint> result = new LinkedList<>();

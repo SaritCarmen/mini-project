@@ -14,6 +14,7 @@ public interface Intersectable
 	 * @return a point3D list of itersections with a given ray
 	 */
 	public List<GeoPoint> findIntersections (Ray ray);
+	
 /**
  * class with Geometry and Point3D values with ctr, getter funcs and  equals func
  */
