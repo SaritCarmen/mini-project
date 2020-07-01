@@ -13,7 +13,7 @@ public interface Intersectable
 	 * @param ray
 	 * @return a point3D list of itersections with a given ray
 	 */
-	public List<GeoPoint> findIntersections (Ray ray);
+	 public List<GeoPoint> findIntersections (Ray ray);
 	 boolean IsIntersectionBox(Ray ray);
 	 Box get_box() ;
 	

@@ -41,27 +41,24 @@ public class miniProject2 {
         scene.setAmbientLight(new AmbientLight(new Color(java.awt.Color.WHITE), 0.15));
         
         Sphere A=new Sphere(new Color(255,0,0), new Material(0.001, 1.5, 100, 0, 0.7), 20, new Point3D(0, 0, 0));
-        Sphere B=new Sphere(new Color(java.awt.Color.BLUE), new Material(0.001, 1.5, 100, 0, 0.7), 20, new Point3D(60, 0, 400));
+        Sphere B=new Sphere(new Color(100,0,50), new Material(0.001, 1.5, 100, 0, 0.7), 20, new Point3D(60, 0, 400));
         Sphere C=new Sphere(new Color(56,115,8), new Material(0.001, 1.5, 100, 0, 0.7), 20, new Point3D(30,0,200));
         
-        Sphere D=  new Sphere(new Color(java.awt.Color.RED), new Material(0.001, 1.5, 100, 0.2, 0.7), 5, new Point3D(80, 15, 0));
-        Sphere E=  new Sphere(new Color(java.awt.Color.BLUE), new Material(0.001, 1.5, 100, 0.2, 0.7), 5, new Point3D(90, 15, 0));
-        Sphere F=  new Sphere(new Color(56,115,8), new Material(0.001, 1.5, 100, 0.2, 0.7), 5, new Point3D(70, 15, 0));
-        
-        Sphere G=  new Sphere(new Color(java.awt.Color.RED), new Material(0.001, 1.5, 100, 0.2, 0.7), 5, new Point3D(-60, 15, 0));
-        Sphere H=  new Sphere(new Color(56,115,8), new Material(0.001, 1.5, 100, 0, 1), 25, new Point3D(-70,-5,80));
+       
+        Sphere G=  new Sphere(new Color(100,0,100), new Material(0.001, 1.5, 100, 0.2, 0.7), 5, new Point3D(-60, 15, 0));
+        Sphere H=  new Sphere(new Color(70,50,0), new Material(0.001, 1.5, 100, 0, 1), 25, new Point3D(-70,-5,80));
         Sphere I=  new Sphere(new Color(java.awt.Color.BLUE), new Material(0.001, 1.5, 100, 0.2, 0.7), 10, new Point3D(-40, 10, 0));
-      //  Cylinder J = new Cylinder(new Color(java.awt.Color.RED),new Material(0.001, 1.5, 100, 0, 1),2, new Ray(new Point3D(80,15,0),new Vector(1,0,0)), 3);
+        Sphere J=  new Sphere(new Color(100,0,100), new Material(0.001, 1.5, 100, 0.2, 0.7), 5, new Point3D(70, 15, 0));
+        
         
         Plane P=  new Plane(new Color(java.awt.Color.BLACK), new Material(0.5, 0.5, 0, 0.5, 0.7), new Point3D(0, 20, 0), new Point3D(4, 20, 0),new Point3D(4,20, 2));
         
-       // Geometries geos5=new Geometries(J);
+        
         Geometries geos2=new Geometries(A,B,C);
-        Geometries geos3=new Geometries(D,E,F);
+        Geometries geos3=new Geometries(J);
         Geometries geos4= new Geometries(G,H,I);
-        Geometries geos1=new Geometries(geos2,geos3,geos4,E,P);
-       // Geometries geos=new Geometries(geos1);
-        scene.addGeometries(geos1);
+        Geometries geos1=new Geometries(geos2,geos3,geos4,P);
+               scene.addGeometries(geos1);
         
       
       scene.addLights(new SpotLight(new Color(700, 400, 400),new Vector(-1, 1, 4),new Point3D(40, -40, -115),  1, 4E-4, 2E-5,10));
@@ -69,7 +66,7 @@ public class miniProject2 {
       scene.addLights(
    		   new PointLight(new Color(700, 400, 400), new Point3D(0, -10,0),1, 0.001, 0.0005,10));
    
-    scene.addLights(new SpotLight(new Color(700, 400, 400), //
+     scene.addLights(new SpotLight(new Color(700, 400, 400), //
 				new Vector(0, 0, 1), new Point3D(60, -50, 0), 1, 4E-5, 2E-7,10));
            
                     
@@ -92,27 +89,25 @@ public class miniProject2 {
         scene.setBackground(Color.BLACK);
         scene.setAmbientLight(new AmbientLight(new Color(java.awt.Color.WHITE), 0.15));
         
+        
         Sphere A=new Sphere(new Color(255,0,0), new Material(0.001, 1.5, 100, 0, 0.7), 20, new Point3D(0, 0, 0));
-        Sphere B=new Sphere(new Color(java.awt.Color.BLUE), new Material(0.001, 1.5, 100, 0, 0.7), 20, new Point3D(60, 0, 400));
+        Sphere B=new Sphere(new Color(100,0,50), new Material(0.001, 1.5, 100, 0, 0.7), 20, new Point3D(60, 0, 400));
         Sphere C=new Sphere(new Color(56,115,8), new Material(0.001, 1.5, 100, 0, 0.7), 20, new Point3D(30,0,200));
         
-        Sphere D=  new Sphere(new Color(java.awt.Color.RED), new Material(0.001, 1.5, 100, 0.2, 0.7), 5, new Point3D(80, 15, 0));
-        Sphere E=  new Sphere(new Color(java.awt.Color.BLUE), new Material(0.001, 1.5, 100, 0.2, 0.7), 5, new Point3D(90, 15, 0));
-        Sphere F=  new Sphere(new Color(56,115,8), new Material(0.001, 1.5, 100, 0.2, 0.7), 5, new Point3D(70, 15, 0));
-        
-        Sphere G=  new Sphere(new Color(java.awt.Color.RED), new Material(0.001, 1.5, 100, 0.2, 0.7), 5, new Point3D(-60, 15, 0));
-        Sphere H=  new Sphere(new Color(56,115,8), new Material(0.001, 1.5, 100, 0, 1), 25, new Point3D(-70,-5,80));
+       
+        Sphere G=  new Sphere(new Color(100,0,100), new Material(0.001, 1.5, 100, 0.2, 0.7), 5, new Point3D(-60, 15, 0));
+        Sphere H=  new Sphere(new Color(70,50,0), new Material(0.001, 1.5, 100, 0, 1), 25, new Point3D(-70,-5,80));
         Sphere I=  new Sphere(new Color(java.awt.Color.BLUE), new Material(0.001, 1.5, 100, 0.2, 0.7), 10, new Point3D(-40, 10, 0));
+        Sphere J=  new Sphere(new Color(100,0,100), new Material(0.001, 1.5, 100, 0.2, 0.7), 5, new Point3D(70, 15, 0));
+        
         
         Plane P=  new Plane(new Color(java.awt.Color.BLACK), new Material(0.5, 0.5, 0, 0.5, 0.7), new Point3D(0, 20, 0), new Point3D(4, 20, 0),new Point3D(4,20, 2));
         
         List<Point> points=new ArrayList<Point>();
 		points.add(new Point(A));
 		points.add(new Point(B));
-		points.add(new Point(C));
-		points.add(new Point(D));
-		points.add(new Point(E));
-		points.add(new Point(F));
+		points.add(new Point(C));		
+		points.add(new Point(J));
 		points.add(new Point(G));
 		points.add(new Point(H));
 		points.add(new Point(I));

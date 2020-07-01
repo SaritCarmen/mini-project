@@ -6,10 +6,7 @@ import java.util.Random;
 
 import primitives.Point3D;
 
-/**
- * @author rinat
- *
- */
+
 
 public class Kmeans {
 
@@ -26,11 +23,7 @@ public class Kmeans {
         this.points = new ArrayList<Point>();
         this.clusters = new ArrayList<Cluster>();        
     }
-   /* public KMeans(List<Point> points) {
-        this.points = points;
-        this.clusters = new ArrayList<Point>();        
-    }*/
-
+   
     
     /**
 	 * @return the clusters
@@ -51,10 +44,7 @@ public class Kmeans {
             Point centroid = Point.createRandomPoint(-100,100);
             cluster.setCentroid(centroid);
             this.clusters.add(cluster);
-        }
-
-        //Print Initial state
-        //plotClusters();
+        }        
     }
 
     private void plotClusters() {

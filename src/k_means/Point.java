@@ -6,10 +6,7 @@ import java.util.Random;
 import geometries.*;
 import primitives.*;
 
-/**
- * @author rinat
- *
- */
+
 public class Point {
 	private Geometry geometry;
     private Point3D PositionPoint;
@@ -87,15 +84,7 @@ public class Point {
         double z = min + (max - min) * r.nextDouble();
         return new Point(new Sphere(1,new Point3D(x,y,z)));
     }
-    /*
-    protected static List createRandomPoints(int min, int max, int number) {
-        List points = new ArrayList(number);
-        for(int i = 0; i < number; i++) {
-            points.add(createRandomPoint(min,max));
-        }
-        return points;
-    }*/
-
+  
     public String toString() {
         return "("+this.PositionPoint.get_x()+","+this.PositionPoint.get_y()+","+this.PositionPoint.get_z()+")";
     }

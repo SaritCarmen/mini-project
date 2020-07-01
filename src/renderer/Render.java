@@ -40,8 +40,7 @@ public class Render {
 	 * number of rays to the beam from point(soft shadow)
 	 */
 	private static final int NUM_OF_RAYES=80;
-	 private double _supersamplingDensity = 1;
-	 private double SOFT_SHADOW=1;
+	
 	
 	/**
 	 * ctr
@@ -180,9 +179,7 @@ public class Render {
 	public void renderImage()
 	{
 		 Camera camera = scene.getCamera();
-	     Intersectable geometries = scene.getGeometries();
 	     java.awt.Color background = scene.getBackground().getColor();
-	     AmbientLight ambientLight = scene.getAmbientLight();
 	     double distance = scene.getDistance();
 	     
 	     int Nx = image.getNx();
@@ -402,26 +399,7 @@ public class Render {
 	 * @return
 	 */
 	private double transparency(LightSource light, Vector l, Vector n, GeoPoint geopoint) {
-	/*	Vector lightDirection = l.scale(-1); // from point to light source
-		Ray lightRay = new Ray(geopoint.getPoint(), lightDirection);
-		List<GeoPoint> intersections = scene.getGeometries().findIntersections(lightRay);
-		if(geopoint.getGeometry().getMaterial().getkT() != 0)
-			return 1.0;
-		Vector delta = n.scale(n.dotProduct(lightDirection) > 0 ? DELTA : - DELTA);
-		Point3D point = geopoint.point.add(delta);
-		if(intersections == null)
-			return 1.0;
-		double ktr = 1.0;
-		double lightDistance = light.getDistance(geopoint.getPoint());
-		for (GeoPoint geo : intersections) {
-			 if (alignZero( geo.point.distance(point)-lightDistance) <= 0 )
-			 {
-				 ktr *= geopoint.geometry.getMaterial().getkT();
-				 if (ktr < MIN_CALC_COLOR_K) 
-					 return 0.0;
-			 }
-		}
-		return ktr;*/
+	
 		double sum_ktr = 0;
 	        List<Ray> rays = constructRayBeamThroughPoint(light, l, n, geopoint);
 	        for (Ray ray : rays) {
@@ -442,8 +420,29 @@ public class Render {
 	            } else
 	                sum_ktr += 1;
 	        }
-	        return sum_ktr/rays.size();//return the average of all the ktr 
-		
+	        return sum_ktr/rays.size();
+	        //return the average of all the ktr 
+	        /*	Vector lightDirection = l.scale(-1); // from point to light source
+			Ray lightRay = new Ray(geopoint.getPoint(), lightDirection);
+			List<GeoPoint> intersections = scene.getGeometries().findIntersections(lightRay);
+			if(geopoint.getGeometry().getMaterial().getkT() != 0)
+				return 1.0;
+			Vector delta = n.scale(n.dotProduct(lightDirection) > 0 ? DELTA : - DELTA);
+			Point3D point = geopoint.point.add(delta);
+			if(intersections == null)
+				return 1.0;
+			double ktr = 1.0;
+			double lightDistance = light.getDistance(geopoint.getPoint());
+			for (GeoPoint geo : intersections) {
+				 if (alignZero( geo.point.distance(point)-lightDistance) <= 0 )
+				 {
+					 ktr *= geopoint.geometry.getMaterial().getkT();
+					 if (ktr < MIN_CALC_COLOR_K) 
+						 return 0.0;
+				 }
+			}
+			return ktr;*/
+			
 	}
 	
 	/**
